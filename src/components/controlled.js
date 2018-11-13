@@ -3,53 +3,43 @@ import React, { Component } from 'react';
 class Controlled extends Component {
 
     state = {
-        name: '',
-        lastname: ''
+        name: 'sarah',
+        lastname: 'nemati'
     }
-
-
-    handleNameChange = (event) => {
+    handleNameChange = (event)=>{
+       this.setState({
+           name:event.target.value
+       })
+    }
+    handleLastNameChange =(event)=>{
         this.setState({
-            name: event.target.value
+            lastname:event.target.value
         })
     }
-    handleLastNameChange = (event) => {
-        this.setState({
-            lastname: event.target.value
-        })
-    }
-
-    onShandler=(event)=> {
-        event.preventDefault()
+    onhandler = (event) =>{
+        event.preventDefault();
         console.log(this.state)
     }
 
-    render() {
-        return (
+    render(){
+        return(
             <div className="container">
-                <form onSubmit={this.onShandler}>
-                    <div className="form-element">
-                        <label>Enter name</label>
-                        <input
-                            type="text"
-                            onChange={this.handleNameChange}
-                            value={this.state.name}
-                        />
-                    </div>
-                    <br />
-                    <div className="form-element">
-                        <label>Enter lastName</label>
-                        <input
-                            onChange={this.handleLastNameChange}
-                            type="text"
-                            value={this.state.lastname}
-                        />
-                    </div>
-                <button type="submit">Submit</button>
+                <form className="form_element" onSubmit={this.onhandler}>
+                    <label>
+                        EnterName
+                    </label>
+                    <input type="text" value={this.state.name}
+                    onChange={this.handleNameChange} />
+                    <label>
+                        Enter lastname
+                    </label>
+                    <input type="text" placeholder="lastname" value={this.state.lastname} onChange={this.handleLastNameChange}/>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         )
     }
+    
 }
 
 export default Controlled;

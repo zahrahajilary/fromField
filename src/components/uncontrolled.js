@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
 
 class Uncontrolled extends Component {
-
-    handleSubmit =(event)=> {
-        event.preventDefault()
-        const value = {
-            name:this.name.value,
-            lastname: this.lastname.value
+   
+    handleSubmit = (event)=>{
+        event.preventDefault();
+        const values ={
+            name :this.name.value,
+            lastname:this.lastname.value
         }
-        console.log(value)
-    }
-
-    render() {
+        console.log(values)
+        }
+    render(){
         return (
-            <div>
-                <div className="container">
-                    <form>
-                        <div className="form-element">
-                            <label>Enter name</label>
-                            <input
-                                type="text"
-                                ref={input => { this.name = input }}
-                            />
-                        </div>
-                        <br />
-                        <div className="form-element">
-                            <label>Enter lastName</label>
-                            <input
-                                type="text"
-                                ref={input => { this.lastname = input }}
-                            />
-                        </div>
-                        <button onClick={this.handleSubmit}>Sing In</button>
-
-                    </form>
-                </div>
+            <div className="container">
+                <form className="form_element">
+                    <label>
+                        EnterName
+                    </label>
+                    <input type="text" 
+                    placeholder="name"
+                    ref={input => this.name = input }/>
+                    <label>
+                        Enter lastname
+                    </label>
+                    <input type="text" placeholder="lastname" ref ={input => this.lastname = input} />
+                    <button onClick = {this.handleSubmit}> Sing in</button>
+                </form>
             </div>
         )
     }
+       
+    
 }
 
 export default Uncontrolled;
